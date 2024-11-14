@@ -1,25 +1,18 @@
 package notes;
 
+import java.util.*;
+
 public class Solution {
     public static void main(String[] args) {
-        
     }
 
-    public int maxPathSum (TreeNode root) {
+    public ListNode deleteDuplicates (ListNode head) {
         // write code here
-        if (root == null) return 0;
-        if (root.left == null && root.right == null) return root.val;
-        
-        return 0;
+        ListNode p = head == null ? null : head.next, pre = head;
+        while (p != null) {
+            while (pre.val == p.val) p = p.next;
+            pre.next = p;
+        }
+        return head;
     }
-
- public static class TreeNode {
-  int val = 0;
-   TreeNode left = null;
-  TreeNode right = null;
-   public TreeNode(int val) {
-     this.val = val;
-  }
- }
-
 }
